@@ -19,7 +19,7 @@ export const getDogs = async (count = 5) => {
   }
 
   const response = await dogAPI.get(`images/search?limit=${count}`);
-  return await response.json();
+  return response.data;
 };
 
 export default dogAPI;
