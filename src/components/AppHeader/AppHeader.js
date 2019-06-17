@@ -8,6 +8,9 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
+import { Link, navigate } from "@reach/router";
+import debounce from "lodash.debounce";
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -62,6 +65,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const debouncedChange = debounce((val) => {
+  navigate(`/search/${val}`);
+}, 350);
+
 export default function AppHeader() {
   const classes = useStyles();
 
@@ -78,7 +85,7 @@ export default function AppHeader() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Puppers.io
+            <Link to="/">Puppers.io</Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -91,6 +98,7 @@ export default function AppHeader() {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'Search' }}
+              onChange={(e) => debouncedChange(e.target.value)}
             />
           </div>
         </Toolbar>
