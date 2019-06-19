@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getDogs } from "../api/DogAPI";
+import bluesAPI from '../api/BluesAPI';
 import DogView from "../components/DogView/DogView";
 import DogViewLoading from "../components/DogView/DogViewLoading";
 
