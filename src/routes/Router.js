@@ -1,13 +1,14 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import Home from "./Home";
+// import Home from "./Home";
 import BreedSearch from "./BreedSearch";
+import UserLogin from "./UserLogin";
 
 
 const AppRouter = () => {
   return(
     <Router>
-      <Home path="/" />
+      <UserLogin path="/" />
       <BreedSearch path="search/:query" />
     </Router>
   );
