@@ -43,6 +43,7 @@ export const fetchFleetsForUser = ((userId) => {
       dispatch(didFetchFleetsForUser(userId, fleets));
     } catch (e) {
       dispatch(didNotFetchFleetsForUser(userId, e.message));
+      console.error(e);
     }
   };
 });

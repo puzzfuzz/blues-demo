@@ -3,7 +3,7 @@ import {
   DID_FETCH_DEVICES_FOR_FLEET,
   DID_NOT_FETCH_DEVICES_FOR_FLEET
 } from './actionTypes/deviceAT';
-import {getFleetForUser} from "../api/BluesAPI";
+import {getDevicesForFleet} from "../api/BluesAPI";
 
 
 function willFetchDevicesForFleet(fleetId) {
@@ -38,10 +38,11 @@ export const fetchDeviceForFleet = ((fleetId) => {
   return async (dispatch) => {
     dispatch(willFetchDevicesForFleet(fleetId));
     try {
-      const devices = await getFleetForUser(fleetId);
+      const devices = await getDevicesForFleet(fleetId);
       dispatch(didFetchDevicesForFleet(fleetId, devices));
     } catch (e) {
       dispatch(didNotFetchDevicesForFleet(fleetId, e.message));
+      console.error(e);
     }
   };
 });

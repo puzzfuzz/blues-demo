@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {getDevicesForFleet} from "../api/BluesAPI";
-import DeviceList from "../components/Devices/DeviceList";
 
-export default class FleetRC extends Component {
+import DeviceList from "../components/Devices/DeviceList";
+import FleetContainer from "../containers/FleetContainer";
+import Device from "../proptypes/Device.pt";
+import Fleet from "../proptypes/Fleet.pt";
+
+class FleetRC extends Component {
   static propTypes = {
-    fleetId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    fetchDeviceForFleet: PropTypes.func.isRequired,
+    fleetId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    devices: PropTypes.arrayOf(Device),
+    fleet: Fleet
   };
 
   state = {
@@ -20,8 +26,8 @@ export default class FleetRC extends Component {
   }
 
   fetchDevices = async () => {
-    const { fleetId } = this.props;
-    const devices = await getDevicesForFleet(fleetId);
+    const { fleetId, fetchDeviceForFleet } = this.props;
+    const devices = await fetchDeviceForFleet(fleetId);
     this.setState({
       devicesFetched: true,
       devices
@@ -29,19 +35,24 @@ export default class FleetRC extends Component {
   };
 
 	render() {
-    const { fleetId } = this.props;
+    const { fleet, devices } = this.props;
 
 	  const {
       devicesFetched,
-      devices
+
     } = this.state;
 
     return (
 			<div>
-        <div>Fleet: {fleetId}</div>
+        {fleet &&(
+          <div>Fleet: {fleet.id}</div>
+        )}
         <div>Devices</div>
         <DeviceList devices={devices} devicesFetched={devicesFetched} />
       </div>
 		)
 	}
 }
+
+
+export default FleetContainer(FleetRC);

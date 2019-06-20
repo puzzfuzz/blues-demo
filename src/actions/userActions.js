@@ -39,6 +39,7 @@ export const fetchUsers = (async (dispatch) => {
     dispatch(didFetchUsers(users));
   } catch (e) {
     dispatch(didNotFetchUsers(e.message));
+    console.error(e);
   }
 });
 

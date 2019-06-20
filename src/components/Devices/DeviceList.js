@@ -11,7 +11,7 @@ const DeviceList = ({
 
 	return (
 		<div>
-      {devicesFetched
+      {devices && devices.length
         ? (devices.map((d) => <DeviceListItem key={`d_${d.id}`} device={d} />))
         : (<div>Loading...</div>)
       }
