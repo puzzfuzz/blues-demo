@@ -36,8 +36,6 @@ export default class FleetRC extends Component {
       devices
     } = this.state;
 
-    console.log(devices);
-
     return (
 			<div>
         <div>Fleet: {fleetId}</div>
