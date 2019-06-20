@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import UserLoginForm from "../components/Users/UserLoginForm";
-import {getUsers} from "../api/BluesAPI";
+import { getUsers } from "../api/BluesAPI";
 import UserList from "../components/Users/UserList";
 
 export default class UserLogin extends Component {

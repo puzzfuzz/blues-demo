@@ -10,6 +10,7 @@ const AppRouter = () => {
     <Router>
       <UserLogin path="/" />
       <BreedSearch path="search/:query" />
+
     </Router>
   );
 };
