@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {getDevicesForFleet} from "../api/BluesAPI";
+import DeviceList from "../components/Devices/DeviceList";
 
 export default class FleetRC extends Component {
   static propTypes = {
@@ -41,6 +42,7 @@ export default class FleetRC extends Component {
 			<div>
         <div>Fleet: {fleetId}</div>
         <div>Devices</div>
+        <DeviceList devices={devices} devicesFetched={devicesFetched} />
       </div>
 		)
 	}

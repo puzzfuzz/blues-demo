@@ -12,16 +12,12 @@ const FleetList = ({
 }) => {
 
 	return (
-		<div>
-      FLC
-      <div>{fleetsFetched}</div>
-      <div>
-        {fleets && fleets.length
-          ? (fleets.map((f) => <FleetListItem key={`f_${f.id}`} fleet={f} showFleet={showFleet} />))
-          : <div>Loading</div>
-        }
-      </div>
-		</div>
+    <div>
+      {fleets && fleets.length
+        ? (fleets.map((f) => <FleetListItem key={`f_${f.id}`} fleet={f} showFleet={showFleet} />))
+        : <div>Loading</div>
+      }
+    </div>
 	);
 };
 
