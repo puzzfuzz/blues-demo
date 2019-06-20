@@ -5,6 +5,7 @@ import {
 } from './actionTypes/userAT'
 
 import {getUsers} from "../api/BluesAPI";
+import {navigate} from "@reach/router";
 
 
 function willFetchUsers() {
@@ -31,7 +32,7 @@ function didNotFetchUsers(error) {
   }
 }
 
-export const fetchUsers = (async (getState, dispatch) => {
+export const fetchUsers = (async (dispatch) => {
   dispatch(willFetchUsers());
   try {
     const users = await getUsers();
@@ -40,3 +41,11 @@ export const fetchUsers = (async (getState, dispatch) => {
     dispatch(didNotFetchUsers(e.message));
   }
 });
+
+
+export const navigateToFleetsForUser = (userId) => {
+  return () => {
+    navigate(`/fleets/${userId}`);
+    return null;
+  };
+};

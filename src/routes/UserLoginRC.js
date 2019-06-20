@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from "@reach/router";
 
+import User from "../proptypes/User.pt";
 import UserLoginForm from "../components/Users/UserLoginForm";
 import UserList from "../components/Users/UserList";
 import UserContainer from "../containers/UserContainer";
-import User from "../proptypes/User.pt";
 
 
-@UserContainer
+
+
 class UserLoginRC extends Component {
   static propTypes = {
     fetchUsers: PropTypes.func.isRequired,
+    navigateToFleetsForUser: PropTypes.func.isRequired,
     users: PropTypes.arrayOf(User)
   };
 
@@ -25,13 +26,11 @@ class UserLoginRC extends Component {
     }, this.props.fetchUsers);
   };
 
-  navigateToFleetsForUser = (userId) => {
-    navigate(`/fleets/${userId}`);
-  };
 
 	render() {
 	  const {
-      users
+      users,
+      navigateToFleetsForUser
     } = this.props;
 
 	  const {
@@ -41,9 +40,21 @@ class UserLoginRC extends Component {
 		if (!userLoggedIn) {
 		  return (<UserLoginForm userDidLogin={this.userDidLogin}/>);
     } else {
-      return (<UserList users={users} showFleetsForUser={this.navigateToFleetsForUser}/>);
+      return (<UserList users={users} showFleetsForUser={navigateToFleetsForUser}/>);
     }
 	}
 }
 
-export default UserLoginRC;
+/**
+ * TODO -
+ * The cleaner way to do this is with Decorators, but they're currently an experimental ES feature and not supported in
+ * the `create-react-app` framework I'm using. Using decorators allows for really clean composition of Containers to
+ * separate out the redux / app state logic from the view and rendering tier.
+ *
+ * Example syntax:
+ *
+ * @UserContainer
+ * class UserLoginRC extends Component {...}
+ */
+
+export default UserContainer(UserLoginRC);

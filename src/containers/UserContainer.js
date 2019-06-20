@@ -1,15 +1,19 @@
 import { connect } from "react-redux";
-import { fetchUsers } from "../actions/userActions";
+import {
+  fetchUsers,
+  navigateToFleetsForUser
+} from "../actions/userActions";
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = state => {
   return {
-    users
+    ...state.users
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUsers: () => { dispatch(fetchUsers); }
+    fetchUsers: () => { dispatch(fetchUsers); },
+    navigateToFleetsForUser: (userId) => { dispatch(navigateToFleetsForUser(userId)); }
   }
 };
 
