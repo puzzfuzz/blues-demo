@@ -10,7 +10,9 @@ function App() {
     <div className="App">
       <CssBaseline />
       <AppHeader/>
-      <AppRouter/>
+      <section id="AppContent">
+        <AppRouter/>
+      </section>
     </div>
   );
 }

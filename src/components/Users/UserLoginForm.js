@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Typography from '@material-ui/core/Typography';
 
+const useStyles = makeStyles({
+  card: {
+    minWidth: 275,
+    padding: '2em'
+  }
+});
 
 function UserLoginForm({ userDidLogin }) {
   const [values, setValues] = useState({
     name: '',
     password: ''
   });
+
+  const classes = useStyles();
 
   const [submitting, setSubmitting] = useState(false);
 
@@ -26,31 +39,44 @@ function UserLoginForm({ userDidLogin }) {
   };
 
   return (
-    <form noValidate autoComplete="off">
-      <TextField
-        id="userLogin-name"
-        label="Name"
-        value={values.name}
-        onChange={handleChange('name')}
-        margin="normal"
-      />
-      <TextField
-        id="userLogin-password"
-        label="Password"
-        type="password"
-        value={values.password}
-        onChange={handleChange('password')}
-        margin="normal"
-      />
-      {submitting
-        ? (<CircularProgress />)
-        : (
-          <Button variant="contained" color="primary" onClick={submitForm}>
-            Login
-          </Button>
-        )
-      }
-    </form>
+    <Card className={classes.card}>
+      <Typography variant="h2">
+        Login to Blues.io
+      </Typography>
+      <CardContent>
+        <form noValidate autoComplete="off">
+          <div>
+            <TextField
+              id="userLogin-name"
+              label="Name"
+              value={values.name}
+              onChange={handleChange('name')}
+              margin="normal"
+            />
+          </div>
+          <div>
+            <TextField
+              id="userLogin-password"
+              label="Password"
+              type="password"
+              value={values.password}
+              onChange={handleChange('password')}
+              margin="normal"
+            />
+          </div>
+        </form>
+      </CardContent>
+      <CardActionArea>
+        {submitting
+          ? (<CircularProgress />)
+          : (
+            <Button size="small" onClick={submitForm}>
+              Login
+            </Button>
+          )
+        }
+      </CardActionArea>
+    </Card>
   );
 }
 

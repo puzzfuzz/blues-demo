@@ -22,6 +22,15 @@ const useStyles = makeStyles(theme => ({
       display: 'block',
     },
   },
+  homeLink: {
+    textDecoration: 'none',
+    '&:focus': { textDecoration: 'none' },
+    '&:hover': { textDecoration: 'none' },
+    '&:visited': { textDecoration: 'none' },
+    '&:link': { textDecoration: 'none' },
+    '&:active': { textDecoration: 'none' },
+    color: theme.primary
+  }
 }));
 
 export default function AppHeader() {
@@ -40,7 +49,7 @@ export default function AppHeader() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            <Link to="/">Blues.io</Link>
+            <Link to="/" className={classes.homeLink}>Blues.io</Link>
           </Typography>
         </Toolbar>
       </AppBar>
