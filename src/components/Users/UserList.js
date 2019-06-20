@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
@@ -6,34 +6,36 @@ import Grid from '@material-ui/core/Grid';
 import User from "../../proptypes/User.pt";
 import UserListItem from "./UserListItem";
 
-export default class UserList extends Component {
-	static propTypes = {
-	  users: PropTypes.arrayOf(User)
-  };
+const UserList = ({
+  users = null,
+  showFleetsForUser
+}) => {
+  if (users) {
+    return (
+      <Grid container justify="center" spacing={4}>
+        {users.map((u, i) => {
+          return (
+            <Grid item key={`u_${i}`}>
+              <UserListItem user={u} showFleetsForUser={showFleetsForUser} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    )
+  } else {
+    return (
+      <CircularProgress />
+    );
+  }
+};
 
-	static defaultProps = {
-	  users: null
-  };
+UserList.propTypes = {
+  showFleetsForUser: PropTypes.func.isRequired,
+  users: PropTypes.arrayOf(User)
+};
 
-	render() {
-	  const { users } = this.props;
+UserList.defaultProps = {
+  users: null
+};
 
-	  if (users) {
-	    return (
-        <Grid container justify="center" spacing={4}>
-          {users.map((u, i) => {
-            return (
-              <Grid item key={`u_${i}`}>
-                <UserListItem user={u} />
-              </Grid>
-            );
-          })}
-        </Grid>
-      )
-    } else {
-	    return (
-        <CircularProgress />
-      );
-    }
-	}
-}
+export default UserList;

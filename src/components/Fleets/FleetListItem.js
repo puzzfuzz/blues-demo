@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 
-import User from "../../proptypes/User.pt";
+import Fleet from "../../proptypes/Fleet.pt";
 
 const useStyles = makeStyles({
   card: {
@@ -14,30 +12,34 @@ const useStyles = makeStyles({
   }
 });
 
-const UserListItem = ({
-  user,
-  showFleetsForUser
-}) => {
-  const { id, name } = user;
+const FleetListItem = ({ fleet }) => {
+  const {
+    id,
+    firmware,
+    devices,
+    owner,
+    name
+  } = fleet;
 
   const classes = useStyles();
 
+  const deviceCount = (devices && devices.length) || '';
 
-  return (
+	return (
     <Card className={classes.card} >
-      <CardActionArea onClick={() => { showFleetsForUser(id); }}>
+      <CardActionArea>
         <CardContent>
-          <div>{id}</div>
-          <div>{name}</div>
+          <div>Id: {id}</div>
+          <div>Firmware: {firmware}</div>
+          <div>Devices: {deviceCount}</div>
         </CardContent>
       </CardActionArea>
     </Card>
-  );
+	);
 };
 
-UserListItem.propTypes = {
-  user: User.isRequired,
-  showFleetsForUser: PropTypes.func.isRequired
+FleetListItem.propTypes = {
+  fleet: Fleet
 };
 
-export default UserListItem;
+export default FleetListItem;

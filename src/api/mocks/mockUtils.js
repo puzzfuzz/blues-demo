@@ -15,3 +15,23 @@ export const apiMock = async (url, cb = __noOp__) => {
   await timeout(getRandomInt(200, 500));
   return cb();
 };
+
+/**
+ * Convets the passed in value to a number.
+ * Useful when reading value off URL params
+ * @param v
+ * @returns {number}
+ * @throws if value fails to convert or convert results in NaN
+ */
+export const toNum = (v) => {
+  if (typeof v === 'number') {
+    return v;
+  }
+
+  let _v = Number(v);
+
+  if (Number.isNaN(_v )) {
+    throw new Error(`${v} is NaN`);
+  }
+  return _v;
+};

@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import { navigate } from "@reach/router";
+
 import UserLoginForm from "../components/Users/UserLoginForm";
 import { getUsers } from "../api/BluesAPI";
 import UserList from "../components/Users/UserList";
 
-export default class UserLogin extends Component {
+export default class UserLoginRC extends Component {
   state = {
     userLoggedIn: false,
     users: null
@@ -17,6 +19,10 @@ export default class UserLogin extends Component {
     });
   };
 
+  navigateToFleetsForUser = (userId) => {
+    navigate(`fleets/${userId}`);
+  };
+
 	render() {
 	  const {
 	    userLoggedIn,
@@ -26,7 +32,7 @@ export default class UserLogin extends Component {
 		if (!userLoggedIn) {
 		  return (<UserLoginForm userDidLogin={this.userDidLogin}/>);
     } else {
-      return (<UserList users={users} />);
+      return (<UserList users={users} showFleetsForUser={this.navigateToFleetsForUser}/>);
     }
 	}
 }

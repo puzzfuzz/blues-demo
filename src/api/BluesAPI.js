@@ -1,6 +1,6 @@
 import { noticeError } from "../util/reportingUtils";
 
-import { apiMock } from "./mocks/mockUtils";
+import {apiMock, toNum} from "./mocks/mockUtils";
 
 import userMocks from './mocks/userMocks';
 import fleetMocks from './mocks/fleetMocks';
@@ -29,14 +29,24 @@ export const getUsers = async () => {
  * @returns {Promise<*>} list of Fleets matching the given user
  */
 export const getFleetForUser = async (userId) => {
+  let nUserId = userId;
+
+  try {
+    nUserId = toNum(userId);
+  } catch (e) {
+    noticeError('BluesAPI:getFleetForUser - userId must be numeric');
+    throw e;
+  }
+
+
   // TODO - this would be baked into a cookie, JWT, x-api header, or some other more robust authentication
-  const url = `/${userId}/fleets`;
-  if (!userId) {
+  const url = `/${nUserId}/fleets`;
+  if (!nUserId) {
     noticeError(`BluesAPI:getFleetForUser - fetch failed for url: ${url} . userId is required`);
   }
 
   return await apiMock(url, () => {
-    return fleetMocks.filter((f) => f.owner === userId);
+    return fleetMocks.filter((f) => f.owner === nUserId);
   });
 };
 
