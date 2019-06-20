@@ -5,12 +5,11 @@ import Fleet from "../../proptypes/Fleet.pt";
 import FleetListItem from './FleetListItem';
 
 
-const FleetListController = ({
+const FleetList = ({
   fleetsFetched,
+  showFleet,
   fleets
 }) => {
-
-  console.log(fleets);
 
 	return (
 		<div>
@@ -18,7 +17,7 @@ const FleetListController = ({
       <div>{fleetsFetched}</div>
       <div>
         {fleets && fleets.length
-          ? (fleets.map((f) => <FleetListItem key={`f_${f.id}`} fleet={f} />))
+          ? (fleets.map((f) => <FleetListItem key={`f_${f.id}`} fleet={f} showFleet={showFleet} />))
           : <div>Loading</div>
         }
       </div>
@@ -26,9 +25,10 @@ const FleetListController = ({
 	);
 };
 
-FleetListController.propTypes = {
+FleetList.propTypes = {
   fleetsFetched: PropTypes.bool.isRequired,
+  showFleet: PropTypes.func.isRequired,
   fleets: PropTypes.arrayOf(Fleet)
 };
 
-export default FleetListController;
+export default FleetList;

@@ -20,7 +20,7 @@ export default class UserLoginRC extends Component {
   };
 
   navigateToFleetsForUser = (userId) => {
-    navigate(`fleets/${userId}`);
+    navigate(`/fleets/${userId}`);
   };
 
 	render() {

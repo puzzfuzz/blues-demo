@@ -31,6 +31,7 @@ export const getUsers = async () => {
 export const getFleetForUser = async (userId) => {
   let nUserId = userId;
 
+  // userId can come in as a string from a URL param, so lets try to cast it to a num before using
   try {
     nUserId = toNum(userId);
   } catch (e) {
@@ -56,13 +57,23 @@ export const getFleetForUser = async (userId) => {
  * @returns {Promise<*>} list of Devices for the given fleet
  */
 export const getDevicesForFleet = async (fleetId) => {
-  const url = `/${fleetId}/devices`;
-  if (!fleetId) {
+  let nFleetId = fleetId;
+
+  // fleetId can come in as a string from a URL param, so lets try to cast it to a num before using
+  try {
+    nFleetId = toNum(fleetId);
+  } catch (e) {
+    noticeError('BluesAPI:getFleetForUser - userId must be numeric');
+    throw e;
+  }
+
+  const url = `/${nFleetId}/devices`;
+  if (!nFleetId) {
     noticeError(`BluesAPI:getFleetForUser - fetch failed for url: ${url} . fleetId is required`);
   }
 
   return await apiMock(url, () => {
-    const fleet = fleetMocks.find((f) => f.id === fleetId);
+    const fleet = fleetMocks.find((f) => f.id === nFleetId);
     return fleet.devices.reduce((acc, dId) => {
       const device = deviceMocks[dId];
       if (device) {

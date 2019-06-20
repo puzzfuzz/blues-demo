@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { navigate } from "@reach/router";
 
 import { getFleetForUser } from "../api/BluesAPI";
-import FleetListController from "../components/Fleets/FleetListController";
+import FleetList from "../components/Fleets/FleetList";
 
 export default class UserFleetsRC extends Component {
 	static propTypes = {
@@ -20,8 +21,6 @@ export default class UserFleetsRC extends Component {
     }
   }
 
-
-
   fetchFleets = async () => {
     const { userId } = this.props;
     const fleets = await getFleetForUser(userId);
@@ -30,6 +29,11 @@ export default class UserFleetsRC extends Component {
       fleets
     });
   };
+
+  navigateToFleet = (fleetId) => {
+    navigate(`/fleet/${fleetId}`);
+  };
+
 
   render() {
     const {
@@ -40,9 +44,10 @@ export default class UserFleetsRC extends Component {
     return (
       <div>
         <div>Fleets</div>
-        <FleetListController
+        <FleetList
           fleetsFetched={fleetsFetched}
           fleets={fleets}
+          showFleet={this.navigateToFleet}
         />
       </div>
     );

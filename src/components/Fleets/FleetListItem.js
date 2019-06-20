@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -12,7 +13,7 @@ const useStyles = makeStyles({
   }
 });
 
-const FleetListItem = ({ fleet }) => {
+const FleetListItem = ({ fleet, showFleet }) => {
   const {
     id,
     firmware,
@@ -27,7 +28,7 @@ const FleetListItem = ({ fleet }) => {
 
 	return (
     <Card className={classes.card} >
-      <CardActionArea>
+      <CardActionArea onClick={() => showFleet(id)}>
         <CardContent>
           <div>Id: {id}</div>
           <div>Firmware: {firmware}</div>
@@ -39,7 +40,8 @@ const FleetListItem = ({ fleet }) => {
 };
 
 FleetListItem.propTypes = {
-  fleet: Fleet
+  fleet: Fleet.isRequired,
+  showFleet: PropTypes.func.isRequired
 };
 
 export default FleetListItem;
