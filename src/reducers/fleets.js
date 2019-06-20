@@ -14,7 +14,7 @@ const fleets = (state = initialState, action) => {
 
   switch (type) {
     case WILL_FETCH_FLEETS:
-      // no-op
+      // no-op for now. would do loading treatments / cleanup here
       return state;
     case DID_FETCH_FLEETS_FOR_USER:
       const { userId, fleets } = payload;
@@ -27,7 +27,7 @@ const fleets = (state = initialState, action) => {
 
       return {
         ...state,
-        userFleets: {
+        userFleets: { // minor optimization, wouldn't store duplicate copies of the objects in a real app
           ...state.userFleets,
           [userId]: fleets
         },
@@ -37,6 +37,8 @@ const fleets = (state = initialState, action) => {
         }
       };
     case DID_NOT_FETCH_FLEETS:
+      // no-op for now. would do error handling here
+      return state;
     default:
       return state;
   }
