@@ -11,7 +11,7 @@ const initialState = {
   error: null
 };
 
-function users(state = initialState, action) {
+const users = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case WILL_FETCH_USERS:
@@ -39,6 +39,6 @@ function users(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
 export default users;

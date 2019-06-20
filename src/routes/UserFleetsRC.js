@@ -4,15 +4,21 @@ import { navigate } from "@reach/router";
 
 import { getFleetForUser } from "../api/BluesAPI";
 import FleetList from "../components/Fleets/FleetList";
+import UserFleetsContainer from "../containers/UserFleetsContainer";
+import User from "../proptypes/User.pt";
+import Fleet from "../proptypes/Fleet.pt";
 
-export default class UserFleetsRC extends Component {
+class UserFleetsRC extends Component {
 	static propTypes = {
-	  userId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+	  userId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    fetchFleetsForUser: PropTypes.func.isRequired,
+    navigateToFleet: PropTypes.func.isRequired,
+    user: User,
+    fleets: PropTypes.arrayOf(Fleet)
   };
 
   state = {
     fleetsFetched: false,
-    fleets: null
   };
 
   componentDidMount() {
@@ -22,28 +28,28 @@ export default class UserFleetsRC extends Component {
   }
 
   fetchFleets = async () => {
-    const { userId } = this.props;
-    const fleets = await getFleetForUser(userId);
+    const { userId, fetchFleetsForUser } = this.props;
     this.setState({
-      fleetsFetched: true,
-      fleets
+      fleetsFetched: true
+    }, () => {
+      fetchFleetsForUser(userId);
     });
   };
 
   navigateToFleet = (fleetId) => {
-    navigate(`/fleet/${fleetId}`);
+    this.props.navigateToFleet(fleetId);
   };
 
 
   render() {
-    const {
-      fleetsFetched,
-      fleets
-    } = this.state;
+    const { fleets, user } = this.props;
+    const { fleetsFetched } = this.state;
 
     return (
       <div>
-        <div>Fleets</div>
+        {user && (
+          <div>Fleets for {user.name}</div>
+        )}
         <FleetList
           fleetsFetched={fleetsFetched}
           fleets={fleets}
@@ -53,3 +59,5 @@ export default class UserFleetsRC extends Component {
     );
   }
 }
+
+export default UserFleetsContainer(UserFleetsRC);
