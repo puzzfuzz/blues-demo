@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d59ff95-59cc-4860-998f-615cff733c13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Devices/DeviceList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Devices/DeviceListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/proptypes/Device.pt.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Fleets/FleetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Fleets/FleetList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UserListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UserListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/FleetRC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/FleetRC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppHeader/AppHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppHeader/AppHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DogView/DogCard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DogView/DogView.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DogView/DogView.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DogView/DogViewLoading.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,15 +30,6 @@
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Users/UserListItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -66,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Devices/DeviceListItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="645">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="e#67#121#0" expanded="true" />
               </folding>
@@ -79,37 +71,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/proptypes/Device.pt.js">
+        <entry file="file://$PROJECT_DIR$/src/components/AppHeader/AppHeader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="7" selection-end-column="25" />
+            <state relative-caret-position="585">
+              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/mocks/deviceMocks.js">
+        <entry file="file://$PROJECT_DIR$/src/api/DogAPI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="170" column="15" lean-forward="true" selection-start-line="166" selection-start-column="2" selection-end-line="170" selection-end-column="15" />
+            <state relative-caret-position="225">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Fleets/FleetListItem.js">
+        <entry file="file://$PROJECT_DIR$/src/proptypes/DogPT.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" selection-end-line="2" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/routes/Router.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="56" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Users/UserList.js">
+        <entry file="file://$PROJECT_DIR$/src/routes/BreedSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="525">
+              <caret line="41" selection-start-line="41" selection-end-line="45" selection-end-column="3" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -177,7 +187,6 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/routes/Search.js" />
         <option value="$PROJECT_DIR$/src/components/DogView/DogCard.js" />
-        <option value="$PROJECT_DIR$/src/components/AppHeader/AppHeader.js" />
         <option value="$PROJECT_DIR$/src/api/DogAPI.js" />
         <option value="$PROJECT_DIR$/src/routes/BreedSearch.js" />
         <option value="$PROJECT_DIR$/src/api/mocks/userMocks.js" />
@@ -196,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/routes/FleetDevicesRC.js" />
         <option value="$PROJECT_DIR$/src/components/Users/UserList.js" />
         <option value="$PROJECT_DIR$/src/components/Fleets/FleetListItem.js" />
-        <option value="$PROJECT_DIR$/src/routes/Router.js" />
         <option value="$PROJECT_DIR$/src/routes/UserLoginRC.js" />
         <option value="$PROJECT_DIR$/src/api/BluesAPI.js" />
         <option value="$PROJECT_DIR$/src/proptypes/Device.pt.js" />
@@ -206,6 +214,8 @@
         <option value="$PROJECT_DIR$/src/routes/FleetRC.js" />
         <option value="$PROJECT_DIR$/src/components/Devices/DeviceList.js" />
         <option value="$PROJECT_DIR$/src/components/Devices/DeviceListItem.js" />
+        <option value="$PROJECT_DIR$/src/components/AppHeader/AppHeader.js" />
+        <option value="$PROJECT_DIR$/src/routes/Router.js" />
       </list>
     </option>
   </component>
@@ -262,7 +272,7 @@
               <item name="app-boilerplate" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Devices" type="462c0819:PsiDirectoryNode" />
+              <item name="AppHeader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app-boilerplate" type="b2602c69:ProjectViewProjectNode" />
@@ -343,18 +353,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31534000" />
+    <option name="totallyTimeSpent" value="31870000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21277878" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21277878" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -510,26 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/DogAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proptypes/DogPT.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" selection-end-line="1" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/mocks/userMocks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -558,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AppHeader/AppHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Users/UserLoginForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
@@ -586,34 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/BreedSearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" selection-start-line="41" selection-end-line="45" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/Router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#97#137#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -717,11 +672,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Devices/DeviceListItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="645">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#67#121#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AppHeader/AppHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/DogAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proptypes/DogPT.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-line="2" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/BreedSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="41" selection-start-line="41" selection-end-line="45" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/Router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>

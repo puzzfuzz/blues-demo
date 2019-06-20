@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router } from '@reach/router';
-// import Home from "./Home";
-import BreedSearch from "./BreedSearch";
+
 import UserLoginRC from "./UserLoginRC";
 import UserFleetsRC from "./UserFleetsRC";
 import FleetRC from "./FleetRC";
@@ -22,7 +21,6 @@ const AppRouter = () => {
       */}
       <UserFleetsRC path="/fleets/:userId" />
       <FleetRC path="/fleet/:fleetId" />
-      <BreedSearch path="search/:query" />
     </Router>
   );
 };
