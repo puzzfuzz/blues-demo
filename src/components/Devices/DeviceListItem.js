@@ -2,16 +2,15 @@ import React from 'react';
 // import PropTypes from "prop-types";
 
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import TableCell from '@material-ui/core/TableCell';
 import Device from "../../proptypes/Device.pt";
 
 
-const useStyles = makeStyles({
-  card: {
-    minWidth: 150
-  }
-});
+// const useStyles = makeStyles({
+//   card: {
+//     minWidth: 150
+//   }
+// });
 
 const DeviceListItem = ({ device }) => {
 
@@ -23,16 +22,16 @@ const DeviceListItem = ({ device }) => {
     name,
   } = device;
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
-    <Card className={classes.card} >
-      <CardContent>
-        <div>{id}</div>
-        <div>{name}</div>
-        <div>{firmware}</div>
-      </CardContent>
-    </Card>
+    <>
+      <TableCell component="th" scope="row">{id}</TableCell>
+      <TableCell align="right">{name}</TableCell>
+      <TableCell align="right">{firmware}</TableCell>
+      <TableCell align="right">{status}</TableCell>
+      <TableCell align="right">{progress}</TableCell>
+    </>
 	);
 };
 

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+
 
 import DeviceList from "../components/Devices/DeviceList";
 import FleetContainer from "../containers/FleetContainer";
@@ -44,10 +46,10 @@ class FleetRC extends Component {
 
     return (
 			<div>
-        {fleet &&(
-          <div>Fleet: {fleet.id}</div>
+        {fleet && (
+          <Typography variant={'h2'} gutterBottom>Fleet: {fleet.id}</Typography>
         )}
-        <div>Devices</div>
+        <Typography variant={'h5'} gutterBottom>Devices</Typography>
         <DeviceList devices={devices} devicesFetched={devicesFetched} />
       </div>
 		)
