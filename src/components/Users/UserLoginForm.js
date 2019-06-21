@@ -66,13 +66,13 @@ function UserLoginForm({ userDidLogin }) {
           </div>
         </form>
       </CardContent>
-      <CardActionArea>
+      <CardActionArea onClick={submitForm}>
         {submitting
           ? (<CircularProgress />)
           : (
-            <Button size="small" onClick={submitForm}>
+            <Typography variant="h6">
               Login
-            </Button>
+            </Typography>
           )
         }
       </CardActionArea>

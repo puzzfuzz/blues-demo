@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from "@reach/router";
 
-import { getFleetForUser } from "../api/BluesAPI";
 import FleetList from "../components/Fleets/FleetList";
 import UserFleetsContainer from "../containers/UserFleetsContainer";
 import User from "../proptypes/User.pt";
