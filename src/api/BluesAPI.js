@@ -1,10 +1,11 @@
 import { noticeError } from "../util/reportingUtils";
 
-import {apiMock, toNum} from "./mocks/mockUtils";
+import {apiMock, randomFromInterval, toNum} from "./mocks/mockUtils";
 
 import userMocks from './mocks/userMocks';
 import fleetMocks from './mocks/fleetMocks';
 import deviceMocks from './mocks/deviceMocks';
+import {STATUS_ACTIVE} from "./mocks/mockConstants";
 
 /**
  * Mock API calls for various endpoints. Homegrown mock util simply adds random latency to call.
@@ -83,6 +84,36 @@ export const getDevicesForFleet = async (fleetId) => {
       return acc;
     }, []);
   })
+};
+
+
+/**
+ * Fetch device status, specifically looking for upgrade progress updates.
+ * Mock calculates a random new progress between current progress and 100, and will fastforward once progress hits >95
+ * @param device
+ * @returns {Promise<{progress: number}>}
+ */
+export const getDeviceStatus = async (device) => {
+  const url = `/devices/${device.id}`;
+
+  await apiMock(url);
+
+  const { progress } = device;
+  const newProgress = (progress >= 95)
+    ? 100
+    : randomFromInterval(device.progress, 100);
+
+  let status = device.status;
+
+  if (newProgress === 100) {
+    status = STATUS_ACTIVE;
+  }
+
+  return {
+    ...device,
+    progress: newProgress,
+    status
+  }
 };
 
 

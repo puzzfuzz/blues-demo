@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Chip from '@material-ui/core/Chip';
 
@@ -10,28 +10,29 @@ import {
 } from "../../api/mocks/mockConstants";
 
 
-const DeviceItemStatus = ({ status }) => {
+export default class DeviceItemStatus extends PureComponent {
+  static propTypes = {
+    status: PropTypes.string.isRequired
+  };
 
-  let color;
+  render() {
+    const { status } = this.props;
 
-	switch (status) {
-    case STATUS_ACTIVE:
-      color = 'primary'; break;
-    case STATUS_UPDATING:
-      color = 'secondary'; break;
-    case STATUS_EXPIRED:
-    case STATUS_INACTIVE:
-    default:
-      color = 'default';
+    let color;
+
+    switch (status) {
+      case STATUS_ACTIVE:
+        color = 'primary'; break;
+      case STATUS_UPDATING:
+        color = 'secondary'; break;
+      case STATUS_EXPIRED:
+      case STATUS_INACTIVE:
+      default:
+        color = 'default';
+    }
+
+    return (
+      <Chip label={status} color={color} />
+    )
   }
-
-  return (
-    <Chip label={status} color={color} />
-  )
-};
-
-DeviceItemStatus.propTypes = {
-  status: PropTypes.string.isRequired
-};
-
-export default DeviceItemStatus;
+}

@@ -1,7 +1,7 @@
 import {
   WILL_FETCH_DEVICES,
   DID_FETCH_DEVICES_FOR_FLEET,
-  DID_NOT_FETCH_DEVICES_FOR_FLEET
+  DID_NOT_FETCH_DEVICES_FOR_FLEET, DEVICE_UPDATED
 } from '../actions/actionTypes/deviceAT';
 
 const initialState = {
@@ -39,6 +39,35 @@ const devices = (state = initialState, action) => {
     case DID_NOT_FETCH_DEVICES_FOR_FLEET:
       // no-op for now. would do error handling here
       return state;
+    case DEVICE_UPDATED:
+      const { device } = payload;
+
+      const fleets = Object.entries(state.fleetDevices)
+        .reduce((acc, [i, deviceArr]) => {
+          const nDs = deviceArr.map((d) => {
+            let dOut = d;
+            if (d.id === device.id) {
+              dOut = {...device};
+            }
+
+            return dOut;
+          });
+
+          acc[i] = nDs;
+          return acc;
+        }, {});
+
+      return {
+        ...state,
+        devices: {
+          ...state.devices,
+          [device.id]: device
+        },
+        fleetDevices: {
+          ...state.fleetDevices,
+          ...fleets
+        }
+      };
     default:
       return state;
   }

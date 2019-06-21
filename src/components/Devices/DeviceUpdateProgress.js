@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress';
+// import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import CheckIcon from '@material-ui/icons/Check';
 
 const useStyles = makeStyles({
   progressWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end'
+    // display: 'flex',
+    // alignItems: 'center',
+    // justifyContent: 'flex-end'
   },
   progressNumber: {
     marginRight: '1em'
@@ -16,6 +17,8 @@ const useStyles = makeStyles({
 });
 
 const DeviceUpdateProgress = ({ progress }) => {
+
+  console.log('rendering progress');
 
   const classes = useStyles();
 
@@ -26,7 +29,7 @@ const DeviceUpdateProgress = ({ progress }) => {
 	return (
 		<div className={classes.progressWrapper} >
       <span className={classes.progressNumber}>{progress}%</span>
-      <CircularProgress variant="determinate" value={progress} />
+      <LinearProgress variant="determinate"  value={progress} />
     </div>
 	);
 };
