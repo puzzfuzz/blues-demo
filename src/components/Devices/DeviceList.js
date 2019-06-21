@@ -29,7 +29,8 @@ const useStyles = makeStyles(theme => ({
 
 
 const DeviceList = ({
-  devices
+  devices,
+  fleetFirmware
 }) => {
   const classes = useStyles();
 
@@ -50,7 +51,7 @@ const DeviceList = ({
             ? (devices.map((d) => {
                 return (
                   <TableRow key={`d_${d.id}`}>
-                    <DeviceListItem device={d}/>
+                    <DeviceListItem device={d} fleetFirmware={fleetFirmware}/>
                   </TableRow>
                 );
               }))
@@ -69,7 +70,13 @@ const DeviceList = ({
 };
 
 DeviceList.propTypes = {
-  devices: PropTypes.arrayOf(Device)
+  devices: PropTypes.arrayOf(Device),
+  fleetFirmware: PropTypes.string
+};
+
+DeviceList.defaultProps = {
+  devices: null,
+  fleetFirmware: null
 };
 
 export default DeviceList;

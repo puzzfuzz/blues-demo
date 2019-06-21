@@ -3,7 +3,7 @@ import { LAST_FIRMWARE, CURRENT_FIRMWARE } from "./mockConstants";
 const FLEET_1 = {
   id: 1,
   name: 'foo',
-  firmware: LAST_FIRMWARE,
+  firmware: CURRENT_FIRMWARE,
   devices: [1,2,3,20],
   owner: 1
 };

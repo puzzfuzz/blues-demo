@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
 
 import DeviceList from "../components/Devices/DeviceList";
@@ -41,16 +42,23 @@ class FleetRC extends Component {
 
 	  const {
       devicesFetched,
-
     } = this.state;
+
+	  const fleetFirmware = (fleet && fleet.firmware )|| null;
 
     return (
 			<div>
         {fleet && (
-          <Typography variant={'h2'} gutterBottom>Fleet: {fleet.id}</Typography>
+          <div>
+            <Typography variant={'h2'} gutterBottom>Fleet: {fleet.name}</Typography>
+            <Typography variant={'subtitle1'} gutterBottom>
+              <div>id: {fleet.id}</div>
+              <div>firmware: {fleet.firmware}</div>
+            </Typography>
+          </div>
         )}
         <Typography variant={'h5'} gutterBottom>Devices</Typography>
-        <DeviceList devices={devices} devicesFetched={devicesFetched} />
+        <DeviceList devices={devices} devicesFetched={devicesFetched} fleetFirmware={fleetFirmware} />
       </div>
 		)
 	}

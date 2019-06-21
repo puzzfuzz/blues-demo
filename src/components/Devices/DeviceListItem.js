@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TableCell from '@material-ui/core/TableCell';
 import Device from "../../proptypes/Device.pt";
 import DeviceItemStatus from "./DeviceItemStatus";
 import DeviceUpdateProgress from "./DeviceUpdateProgress";
+import DeviceFirmwareStatus from "./DeviceFirmwareStatus";
 
-
-const DeviceListItem = ({ device }) => {
+const DeviceListItem = ({ device, fleetFirmware }) => {
 
   const {
     id,
@@ -16,13 +17,17 @@ const DeviceListItem = ({ device }) => {
     name,
   } = device;
 
-  // const classes = useStyles();
+  const firmwareMismatch = fleetFirmware === null
+    ? false
+    : (firmware !== fleetFirmware);
 
   return (
     <>
       <TableCell component="th" scope="row">{id}</TableCell>
       <TableCell align="right">{name}</TableCell>
-      <TableCell align="right">{firmware}</TableCell>
+      <TableCell align="right">
+        <DeviceFirmwareStatus firmware={firmware} firmwareMismatch={firmwareMismatch}/>
+      </TableCell>
       <TableCell align="center">
         <DeviceItemStatus status={status}/>
       </TableCell>
@@ -34,7 +39,13 @@ const DeviceListItem = ({ device }) => {
 };
 
 DeviceListItem.propTypes = {
-  device: Device
+  device: Device.isRequired,
+  fleetFirmware: PropTypes.string
 };
+
+DeviceListItem.defaultProps = {
+  fleetFirmware: null
+};
+
 
 export default DeviceListItem;
