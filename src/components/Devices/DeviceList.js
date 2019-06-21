@@ -41,20 +41,26 @@ const DeviceList = ({
             <TableCell>Id</TableCell>
             <TableCell align="right">Name</TableCell>
             <TableCell align="right">Firmware</TableCell>
-            <TableCell align="right">Satus</TableCell>
+            <TableCell align="center">Status</TableCell>
             <TableCell align="right">Progress</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {devices && devices.length
             ? (devices.map((d) => {
-              return (
-                <TableRow key={`d_${d.id}`}>
-                  <DeviceListItem device={d}/>
-                </TableRow>
-              );
-            }))
-            : (<LinearProgress className={classes.progress}/>)
+                return (
+                  <TableRow key={`d_${d.id}`}>
+                    <DeviceListItem device={d}/>
+                  </TableRow>
+                );
+              }))
+            : (
+              <TableRow>
+                <TableCell colSpan={5}>
+                  <LinearProgress className={classes.progress}/>
+                </TableCell>
+              </TableRow>
+            )
           }
         </TableBody>
       </Table>

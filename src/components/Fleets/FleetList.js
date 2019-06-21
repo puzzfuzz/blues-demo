@@ -52,11 +52,17 @@ const FleetList = ({
         <TableBody>
           {fleets && fleets.length
             ? (fleets.map((f) => {
-              return (
-                <FleetListItem key={`f_${f.id}`} fleet={f} showFleet={showFleet} />
-              );
-            }))
-            : (<LinearProgress className={classes.progress}/>)
+                return (
+                  <FleetListItem key={`f_${f.id}`} fleet={f} showFleet={showFleet} />
+                );
+              }))
+            : (
+              <TableRow>
+                <TableCell colSpan={6}>
+                  <LinearProgress className={classes.progress}/>
+                </TableCell>
+              </TableRow>
+            )
           }
         </TableBody>
       </Table>

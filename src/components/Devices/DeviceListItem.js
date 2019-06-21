@@ -1,16 +1,10 @@
 import React from 'react';
-// import PropTypes from "prop-types";
 
-import { makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import Device from "../../proptypes/Device.pt";
+import DeviceItemStatus from "./DeviceItemStatus";
+import DeviceUpdateProgress from "./DeviceUpdateProgress";
 
-
-// const useStyles = makeStyles({
-//   card: {
-//     minWidth: 150
-//   }
-// });
 
 const DeviceListItem = ({ device }) => {
 
@@ -29,8 +23,12 @@ const DeviceListItem = ({ device }) => {
       <TableCell component="th" scope="row">{id}</TableCell>
       <TableCell align="right">{name}</TableCell>
       <TableCell align="right">{firmware}</TableCell>
-      <TableCell align="right">{status}</TableCell>
-      <TableCell align="right">{progress}</TableCell>
+      <TableCell align="center">
+        <DeviceItemStatus status={status}/>
+      </TableCell>
+      <TableCell align="right">
+        <DeviceUpdateProgress progress={progress}/>
+      </TableCell>
     </>
 	);
 };

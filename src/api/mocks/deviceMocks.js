@@ -13,17 +13,17 @@ export const D_1 = {
 
 export const D_2 = {
   id: 2,
-  firmware: LAST_FIRMWARE,
-  status: STATUS_ACTIVE,
+  firmware: CURRENT_FIRMWARE,
+  status: STATUS_INACTIVE,
   progress: 100,
   name: 'D_2',
 };
 
 export const D_3 = {
   id: 3,
-  firmware: LAST_FIRMWARE,
-  status: STATUS_ACTIVE,
-  progress: 100,
+  firmware: CURRENT_FIRMWARE,
+  status: STATUS_UPDATING,
+  progress: 25,
   name: 'D_3',
 };
 
@@ -158,7 +158,7 @@ export const D_19 = {
 export const D_20 = {
   id: 20,
   firmware: LAST_FIRMWARE,
-  status: STATUS_ACTIVE,
+  status: STATUS_EXPIRED,
   progress: 100,
   name: 'D_20',
 };
@@ -166,7 +166,7 @@ export const D_20 = {
 export const D_21 = {
   id: 21,
   firmware: LAST_FIRMWARE,
-  status: STATUS_ACTIVE,
+  status: STATUS_EXPIRED,
   progress: 100,
   name: 'D_21',
 };
@@ -174,7 +174,7 @@ export const D_21 = {
 export const D_22 = {
   id: 22,
   firmware: LAST_FIRMWARE,
-  status: STATUS_ACTIVE,
+  status: STATUS_EXPIRED,
   progress: 100,
   name: 'D_22',
 };
@@ -182,7 +182,7 @@ export const D_22 = {
 export const D_23 = {
   id: 23,
   firmware: LAST_FIRMWARE,
-  status: STATUS_ACTIVE,
+  status: STATUS_EXPIRED,
   progress: 100,
   name: 'D_23',
 };
