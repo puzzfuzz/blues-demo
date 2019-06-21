@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d59ff95-59cc-4860-998f-615cff733c13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Devices/DeviceFirmwareStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Devices/DeviceFirmwareStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Devices/DeviceItemStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Devices/DeviceItemStatus.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,11 +15,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Devices/DeviceItemStatus.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="31" lean-forward="true" selection-start-column="12" selection-end-column="31" />
+            <state relative-caret-position="435">
+              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Devices/DeviceFirmwareStatus.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
+            <state relative-caret-position="585">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -209,13 +212,13 @@
         <option value="$PROJECT_DIR$/src/actions/deviceActions.js" />
         <option value="$PROJECT_DIR$/src/reducers/devices.js" />
         <option value="$PROJECT_DIR$/src/api/BluesAPI.js" />
-        <option value="$PROJECT_DIR$/src/components/Devices/DeviceItemStatus.js" />
         <option value="$PROJECT_DIR$/src/components/Devices/DeviceList.js" />
         <option value="$PROJECT_DIR$/src/components/Devices/DeviceListItem.js" />
         <option value="$PROJECT_DIR$/src/components/Devices/DeviceUpdateProgress.js" />
         <option value="$PROJECT_DIR$/src/api/mocks/fleetMocks.js" />
         <option value="$PROJECT_DIR$/src/routes/FleetRC.js" />
         <option value="$PROJECT_DIR$/src/components/Devices/DeviceFirmwareStatus.js" />
+        <option value="$PROJECT_DIR$/src/components/Devices/DeviceItemStatus.js" />
       </list>
     </option>
   </component>
@@ -388,7 +391,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56689000" />
+    <option name="totallyTimeSpent" value="56837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -723,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Devices/DeviceItemStatus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" lean-forward="true" selection-start-column="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/BluesAPI.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
@@ -809,8 +805,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Devices/DeviceFirmwareStatus.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
+        <state relative-caret-position="585">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Devices/DeviceItemStatus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

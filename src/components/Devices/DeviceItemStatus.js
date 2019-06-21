@@ -18,6 +18,8 @@ export default class DeviceItemStatus extends PureComponent {
   render() {
     const { status } = this.props;
 
+    const displayStatus = status.toUpperCase();
+
     let color;
 
     switch (status) {
@@ -32,7 +34,7 @@ export default class DeviceItemStatus extends PureComponent {
     }
 
     return (
-      <Chip label={status} color={color} />
+      <Chip label={displayStatus} color={color} />
     )
   }
 }
