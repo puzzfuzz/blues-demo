@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     '&:visited': { textDecoration: 'none' },
     '&:link': { textDecoration: 'none' },
     '&:active': { textDecoration: 'none' },
-    color: theme.primary
+    color: 'white'
   }
 }));
 

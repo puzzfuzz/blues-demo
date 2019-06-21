@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardActionArea from '@material-ui/core/CardActionArea';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import IconButton from '@material-ui/core/IconButton';
+import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 
 import Fleet from "../../proptypes/Fleet.pt";
 
-const useStyles = makeStyles({
-  card: {
-    minWidth: 150
-  }
-});
+// const useStyles = makeStyles({
+//   card: {
+//     minWidth: 150
+//   }
+// });
+
 
 const FleetListItem = ({ fleet, showFleet }) => {
   const {
@@ -22,20 +24,23 @@ const FleetListItem = ({ fleet, showFleet }) => {
     name
   } = fleet;
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const deviceCount = (devices && devices.length) || '';
 
-	return (
-    <Card className={classes.card} >
-      <CardActionArea onClick={() => showFleet(id)}>
-        <CardContent>
-          <div>Id: {id}</div>
-          <div>Firmware: {firmware}</div>
-          <div>Devices: {deviceCount}</div>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+  return (
+    <TableRow>
+      <TableCell>
+        <IconButton onClick={() => showFleet(id)} aria-label="View Fleet">
+          <VisibilityOutlinedIcon />
+        </IconButton>
+      </TableCell>
+      <TableCell component="th" scope="row">{id}</TableCell>
+      <TableCell align="right">{name}</TableCell>
+      <TableCell align="right">{firmware}</TableCell>
+      <TableCell align="right">{deviceCount}</TableCell>
+      <TableCell align="right">{owner}</TableCell>
+    </TableRow>
 	);
 };
 

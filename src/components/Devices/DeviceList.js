@@ -8,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import Device from "../../proptypes/Device.pt";
 import DeviceListItem from "./DeviceListItem";
@@ -21,11 +22,13 @@ const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 650,
   },
+  progress: {
+    width: '100%'
+  }
 }));
 
 
 const DeviceList = ({
-  devicesFetched,
   devices
 }) => {
   const classes = useStyles();
@@ -51,7 +54,7 @@ const DeviceList = ({
                 </TableRow>
               );
             }))
-            : (<div>Loading...</div>)
+            : (<LinearProgress className={classes.progress}/>)
           }
         </TableBody>
       </Table>
@@ -60,7 +63,6 @@ const DeviceList = ({
 };
 
 DeviceList.propTypes = {
-  devicesFetched: PropTypes.bool.isRequired,
   devices: PropTypes.arrayOf(Device)
 };
 
