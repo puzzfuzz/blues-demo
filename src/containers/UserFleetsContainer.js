@@ -11,6 +11,7 @@ const mapStateToProps = (state, { userId }) => {
     fleets: null
   };
 
+  // Get the selected User and their available fleets from the store
   if (userId && state.users.users) {
     props.user = state.users.users.find((u) => u.id === toNum(userId));
     props.fleets = state.fleets.userFleets[toNum(userId)];

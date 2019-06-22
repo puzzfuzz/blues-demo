@@ -42,6 +42,10 @@ const devices = (state = initialState, action) => {
     case DEVICE_UPDATED:
       const { device } = payload;
 
+      // TODO - refactor
+      // Device instances are currently stored in both the `devices` map and the `fleetDevices` instances for simplicity at render time.
+      // We need to find all instances of the device that was updated and update them all.
+      // `fleetDevices` should just be a reference into the `devices` map.
       const fleets = Object.entries(state.fleetDevices)
         .reduce((acc, [i, deviceArr]) => {
           const nDs = deviceArr.map((d) => {

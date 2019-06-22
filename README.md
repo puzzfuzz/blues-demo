@@ -1,3 +1,5 @@
+# Blues.io Demo
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Getting started
@@ -127,3 +129,23 @@ src/componenets/
 ``` 
 
 These are all of the various individual rendering pieces, organized by type of object they are rendering. 
+
+
+## TODO 
+
+#### Testing
+
+Currently Material UI has some specific testing requirements that were too much of a pain to integrate for this demo. 
+Consequently, there are no unit tests. That would obviously be fixed in production!
+
+#### Login / Users
+
+I'm not a fan of the login flow. It should be persisting the login state and not making you re-login to view the Users list.
+I ran out of time to clean this up. I also hate the User select view, and would prefer to do a more polished representation of this.
+
+
+#### General
+
+- Breadcrumbs for better navigation.
+- Better support for refreshing the page on a lower route by either fetching necessary upstream objects or force-redirecting to login to start the flow again.
+- More consistent route pathing.  

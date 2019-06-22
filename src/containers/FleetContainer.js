@@ -9,6 +9,7 @@ const mapStateToProps = ({ fleets, devices }, { fleetId }) => {
     devices: null
   };
 
+  // get the Fleet and list of Devices for that fleet from the store
   if (fleetId && fleets.fleets) {
     props.fleet = fleets.fleets[toNum(fleetId)];
     props.devices = devices.fleetDevices[toNum(fleetId)];

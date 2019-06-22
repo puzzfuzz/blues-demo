@@ -48,7 +48,7 @@ class UserLoginRC extends Component {
 /**
  * TODO -
  * The cleaner way to do this is with Decorators, but they're currently an experimental ES feature and not supported in
- * the `create-react-app` framework I'm using. Using decorators allows for really clean composition of Containers to
+ * the `create-react-app` framework being using. Using decorators allows for really clean composition of Containers to
  * separate out the redux / app state logic from the view and rendering tier.
  *
  * Example syntax:
