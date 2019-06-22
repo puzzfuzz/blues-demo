@@ -35,7 +35,12 @@ function didNotFetchFleetsForUser(userId, error) {
   }
 }
 
-export const fetchFleetsForUser = ((userId) => {
+/**
+ * Fetch all fleets that are accessible for a given userId
+ * @param userId {string} Id of user to fetch fleets for
+ * @returns {Function} async thunk
+ */
+export const fetchFleetsForUser = (userId) => {
   return async (dispatch) => {
     dispatch(willFetchFleetsForUser(userId));
     try {
@@ -46,9 +51,12 @@ export const fetchFleetsForUser = ((userId) => {
       console.error(e);
     }
   };
-});
+};
 
-
+/**
+ * Navigate to the view for a specific fleet
+ * @param fleetId {string} Id of fleet to view
+ */
 export const navigateToFleet = (fleetId) => {
   return () => {
     navigate(`/fleet/${fleetId}`);

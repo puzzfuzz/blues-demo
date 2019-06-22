@@ -1,9 +1,20 @@
 function __noOp__(){}
 
+/**
+ * Generate a random number between `min` and `max` (inclusive)
+ * @param min {number} integer for minimum value
+ * @param max {number} integer for maximum value
+ * @returns {number} a random number
+ */
 export const randomFromInterval = (min = 1, max = 100) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+/**
+ * Helper function to sleep execution in an async/await compatable way that doesn't block the main thread
+ * @param ms
+ * @returns {Promise<any>}
+ */
 export const timeout = (ms = 100) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };

@@ -74,6 +74,8 @@ export const getDevicesForFleet = async (fleetId) => {
   }
 
   return await apiMock(url, () => {
+    // Fleet->Device mapping is stored as an array of Device Ids on the fleet so
+    // first find the fleet, then grab all Devices by ID
     const fleet = fleetMocks.find((f) => f.id === nFleetId);
     return fleet.devices.reduce((acc, dId) => {
       const device = deviceMocks[dId];
@@ -99,6 +101,10 @@ export const getDeviceStatus = async (device) => {
   await apiMock(url);
 
   const { progress } = device;
+
+  // Simulate status updates for device progress.
+  // Calculate a random progress update between "current progress" and 100.
+  // If the value is at or above 95, just fast-forward the progress to 100 and set the status to "active".
   const newProgress = (progress >= 95)
     ? 100
     : randomFromInterval(device.progress, 100);

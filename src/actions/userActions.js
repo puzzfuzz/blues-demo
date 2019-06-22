@@ -32,7 +32,11 @@ function didNotFetchUsers(error) {
   }
 }
 
-export const fetchUsers = (async (dispatch) => {
+/**
+ * List all users or accounts viewable by the current logged in session
+ * @returns {Promise<void>} async thunk
+ */
+export const fetchUsers = async (dispatch) => {
   dispatch(willFetchUsers());
   try {
     const users = await getUsers();
@@ -41,9 +45,13 @@ export const fetchUsers = (async (dispatch) => {
     dispatch(didNotFetchUsers(e.message));
     console.error(e);
   }
-});
+};
 
 
+/**
+ * Navigate to a view of all fleets visible to a specific user
+ * @param userId {string} Id of user to view available fleets for
+ */
 export const navigateToFleetsForUser = (userId) => {
   return () => {
     navigate(`/fleets/${userId}`);

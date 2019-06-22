@@ -44,6 +44,11 @@ function deviceUpdated(device) {
   }
 }
 
+/**
+ * Will fetch the data for all devices associated with a specific Fleet.
+ * @param fleetId {string|number} Id of the fleet to fetch devices for
+ * @returns {Function} async thunk
+ */
 export const fetchDeviceForFleet = (fleetId) => {
   return async (dispatch) => {
     dispatch(willFetchDevicesForFleet(fleetId));
@@ -63,6 +68,12 @@ export const fetchDeviceForFleet = (fleetId) => {
   };
 };
 
+/**
+ * Poll for any updates on fetched Devices that aren't 100% updated.
+ * There's definitely a more efficient way to do this!
+ * @param device {object|Device} a Device to poll for
+ * @returns {Function}
+*/
 const pollDeviceForUpdateStatus = (device) => {
   // poll recursively until status is 100
   return async (dispatch) => {
