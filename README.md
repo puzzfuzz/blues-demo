@@ -130,6 +130,8 @@ src/componenets/
 
 These are all of the various individual rendering pieces, organized by type of object they are rendering. 
 
+**Note**: The way styles are being handled is specific to MUI and I mostly just copied this from their documentation for the most part. 
+I would want to do a bit deeper dive on this before committing to tye `makeStyles` format vs. CSS modules, or just general SASS implementation.  
 
 ## TODO 
 
