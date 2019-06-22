@@ -12,6 +12,18 @@ npm start
 This will launch a local dev service running on port `3000` which will 
 include hot-deploy module reloading for super fast dev iteration. 
 
+## Running the Demo
+
+Happy-path execution is: 
+
+1. Login (any creds, not checked)
+1. Click on "TestCo" user
+1. Click on View icon for Fleet "foo" with id: 1
+
+This fleet has the most comprehensive test data to see some of the more interesting features on status and progress updates.
+
+**Note:** Clicking `Blues.io` in the header will take you back to the Login to re-run the flow at any time.
+
 ## Dependencies
 
 For this project I used the following libraries:

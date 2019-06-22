@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d59ff95-59cc-4860-998f-615cff733c13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -113,8 +112,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="717">
-                <caret line="132" column="7" selection-start-line="132" selection-start-column="7" selection-end-line="132" selection-end-column="7" />
+              <first_editor relative-caret-position="360">
+                <caret line="24" column="107" selection-start-line="24" selection-start-column="107" selection-end-line="24" selection-end-column="107" />
               </first_editor>
               <second_editor />
             </state>
@@ -381,7 +380,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64691000" />
+    <option name="totallyTimeSpent" value="64935000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -827,8 +826,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="717">
-            <caret line="132" column="7" selection-start-line="132" selection-start-column="7" selection-end-line="132" selection-end-column="7" />
+          <first_editor relative-caret-position="360">
+            <caret line="24" column="107" selection-start-line="24" selection-start-column="107" selection-end-line="24" selection-end-column="107" />
           </first_editor>
           <second_editor />
         </state>
