@@ -17,7 +17,7 @@ export const apiMock = async (url, cb = __noOp__) => {
 };
 
 /**
- * Convets the passed in value to a number.
+ * Converts the passed in value to a number.
  * Useful when reading value off URL params
  * @param v
  * @returns {number}

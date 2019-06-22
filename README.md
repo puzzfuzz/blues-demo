@@ -1,68 +1,129 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Getting started
 
-In the project directory, you can run:
+```
+npm install
+npm start
+```
 
-### `npm start`
+This will launch a local dev service running on port `3000` which will 
+include hot-deploy module reloading for super fast dev iteration. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Dependencies
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+For this project I used the following libraries:
 
-### `npm test`
+- React
+  - View layer
+- Redux
+  - Application data and state management
+- Redux Thunk
+  - A redux middleware that allows dispatching async actions (makes API requests way easier to manage)
+- Reach Router
+  - A super useful package that manages mapping between page routes and components.
+  - Handles back/forward button support, and is fully compliant with modern accessibility guidelines and requirements.
+  - Is a ground-up re-write of the older `react-router` package by one of the original authors 
+- Material UI
+  - A powerful, if bloated, component library.
+  - Used in this demo primarily to show how a component library can be used, and to let the focus of the demo be on the application and business logic.
+  
+  
+## Directory Structure and Architecture
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project was built using Redux for application data management which allows a clean separation between presentation and business logic. 
+In this design, `container`s act as the dividing line between application and presentation logic.
 
-### `npm run build`
+### Application Logic
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### API
+```
+src/api/
+-- mocks/
+-- BluesAPI.js
+```      
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The `src/api`directory contains the mocked API and data structures. `mocks/mockUtils` has a mocked fetch that just fakes a server fetch and returns a promise that resolves after a random timeout of 200-500ms. 
+`BluesAPI` shows examples of simple GET wrappers which just pull / filter data from the static json of various objects in the `api/mocks` folder.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Actions
 
-### `npm run eject`
+```
+src/actions/
+-- actionTypes/
+-- <object>Actions.js
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+In `src/actions` you'll find both `actions` and `actionType` constants. 
+The `actions` are what is called by the view tier, and generally have two types: asynchronous or complex actions, and "action primitives" which simply return a redux action of the shape `{ type, payload }`. 
+Separating out the `actionTypes` to their own constants files makes testing and bundle splitting MUCH easier (we ran into this issue in the past).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Store / Reducers
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+src/
+-- reducers/
+-- store.js
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The `store` is effectively the global state/data manager for the application. 
+`reducer`s effectively manage a slice of the store and consume one or more actions with payloads to update the global data in some way.
+Strategies for creating / organizing `reducer`s vary from application to application, but for this one I just used one per primary object type.
+The `store` is created with a middlware that enables some really nice developer tooling and debugging, but in production I would create a version of the store that doesn't include that in the prod build.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Presentation Logic
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Containers
 
-### Code Splitting
+```
+src/containers/
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Containers are used to "connect" a React component (or component tree) to the redux `store`. 
+Redux provides a `connect` function that takes two arguments: `mapStateToProps` and `mapDispatchToActions`.
+This is a great place to map any server data or business logic into view-appropriate format. 
+The `connect` call manages setting up observer binding to specific pieces of the `store` so that the components only re-render when data they care about changes.
 
-### Analyzing the Bundle Size
+Containers are what is known as a "Higher Order Component (HOC)". This means that they are actually a function that takes a Component as an argument, enhances it in some way, and then return it.
+In this way the component can be written 100% agnostic of the data tier, taking actions and store data as props and not caring where they came from.
+They can also be reused across many different components.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```jsx harmony
+import UserContainer from '../containers/UserContainer';
 
-### Making a Progressive Web App
+class FooComp extends Component { /*...*/ };
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+export default UserContainer(FooComp);
+```
 
-### Advanced Configuration
+#### PropTypes
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+src/proptypes/
+``` 
 
-### Deployment
+React uses `propTypes` as a way to do runtime validation on the types of arguments passed into a component on `props`.
+`PropTypes.shape` allows you to provide effectively a schema for known objects, so I like to use this pattern specifically for any remote datatypes. 
+I use the extension `Foo.pt.js` to indicate that it's a `propType` file, but that's a convention of my own design, not an industry standard.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### Route Controllers
 
-### `npm run build` fails to minify
+```
+src/routes/
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+RouteControllers are the way I like to organize my component roots. 
+These are what gets rendered by the Router based on URL path and params, and also where I try to do the majority of my Container usage.
+
+#### Components
+
+```
+src/componenets/
+-- AppHeader/
+-- Devices/
+-- Fleets/
+-- Users/
+``` 
+
+These are all of the various individual rendering pieces, organized by type of object they are rendering. 

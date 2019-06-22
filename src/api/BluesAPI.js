@@ -115,13 +115,3 @@ export const getDeviceStatus = async (device) => {
     status
   }
 };
-
-
-const bluesAPI = {
-  getUsers,
-  getFleetForUser,
-  getDevicesForFleet
-};
-
-export default bluesAPI;
-
