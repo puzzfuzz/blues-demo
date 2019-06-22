@@ -14,6 +14,8 @@ include hot-deploy module reloading for super fast dev iteration.
 
 ## Running the Demo
 
+![demo](https://raw.githubusercontent.com/puzzfuzz/blues-demo/master/BluesDemo.gif)
+
 Happy-path execution is: 
 
 1. Login (any creds, not checked)
